@@ -16,6 +16,7 @@ import time
 from pathlib import Path
 
 import mlflow
+from aeroops.mlflow_utils import configure_mlflow
 import numpy as np
 import pandas as pd
 import torch
@@ -68,6 +69,8 @@ def main(argv=None):
     ap.add_argument("--out", default="reports")
     ap.add_argument("--models-dir", default="models")
     ap.add_argument("--lstm-epochs", type=int, default=30)
+    ap.add_argument("--quick", action="store_true",
+                    help="smoke train: baseline + Ridge only, 2-fold CV, no LSTM")
     ap.add_argument("--threads", type=int, default=4)
     a = ap.parse_args(argv)
     torch.set_num_threads(a.threads)
@@ -85,6 +88,7 @@ def main(argv=None):
     all_cols = feature_columns(ftr)
     raw_cols = ["cycle", *USED_SENSORS]
 
+    configure_mlflow()
     mlflow.set_experiment(f"rul-{a.fd}")
     results = []
 
@@ -103,12 +107,16 @@ def main(argv=None):
         return pred
 
     # Baseline
-    cv = cv_last_cycle_eval(ftr, all_cols, "Baseline (mean RUL)", a.threads)
+    cv = cv_last_cycle_eval(ftr, all_cols, "Baseline (mean RUL)", a.threads, k=(2 if a.quick else 5))
     record("Baseline (mean RUL)", [], np.full(len(fte), ftr["rul"].mean()), {}, 0.0, cv)
 
-    for name, params in [("Ridge regression", {"alpha": 1.0}), ("Random Forest", RF_PARAMS), ("XGBoost", XGB_PARAMS)]:
+    model_specs = [("Ridge regression", {"alpha": 1.0})]
+    if not a.quick:
+        model_specs += [("Random Forest", RF_PARAMS), ("XGBoost", XGB_PARAMS)]
+    for name, params in model_specs:
         for cols in ([raw_cols, all_cols] if name == "XGBoost" else [all_cols]):  # ablation: raw vs rolling features
-            cv = cv_last_cycle_eval(ftr, cols, name, a.threads)
+            k = 2 if a.quick else 5
+            cv = cv_last_cycle_eval(ftr, cols, name, a.threads, k=k)
             t = time.time()
             m = make_tabular(name, a.threads).fit(ftr[cols].to_numpy(), ftr["rul"].to_numpy())
             sec = time.time() - t
@@ -116,6 +124,11 @@ def main(argv=None):
             if name == "XGBoost" and cols == all_cols:
                 m.save_model(md / f"xgb_rul_{a.fd}.json")
                 (md / f"xgb_rul_{a.fd}_features.json").write_text(json.dumps(cols))
+
+    if a.quick:
+        (out / f"rul_{a.fd}_results.json").write_text(json.dumps(results, indent=2))
+        print(f"quick done → {out / f'rul_{a.fd}_results.json'} tracking={mlflow.get_tracking_uri()}")
+        return
 
     # LSTM (no CV: test-only, fixed hyper-parameters chosen a priori; documented in README)
     scaler = MinMax().fit(train[USED_SENSORS].to_numpy(dtype=float))

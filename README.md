@@ -137,7 +137,9 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements-dev.txt            # needs Java 17+ for PySpark
 make data          # BTS Jan-Mar 2024 (~750 MB CSV) + NASA C-MAPSS (~12 MB), git-ignored
 make train         # pipeline -> features -> KPIs -> delay model -> RUL models -> SHAP
-mlflow ui --backend-store-uri sqlite:///mlflow.db   # browse every run
+# Training defaults MLFLOW_TRACKING_URI to sqlite:///mlruns.db (MLflow 3 rejects ./mlruns).
+# Override with: export MLFLOW_TRACKING_URI=sqlite:///mlflow.db
+mlflow ui --backend-store-uri sqlite:///mlruns.db   # browse every run
 make serve         # FastAPI on :8000  (docs at /docs)
 make bench         # latency/throughput benchmark (in another shell)
 make dashboard     # Streamlit on :8501

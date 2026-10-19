@@ -15,6 +15,7 @@ import time
 from pathlib import Path
 
 import mlflow
+from aeroops.mlflow_utils import configure_mlflow
 import numpy as np
 import pandas as pd
 from sklearn.impute import SimpleImputer
@@ -92,6 +93,7 @@ def main(argv=None):
 
     numeric_lr = ["dep_hour", "day_of_week", "distance", *HISTORY]
     models = {"Prior (base rate)": [], "LogReg: schedule + history (numeric)": numeric_lr, **ABLATIONS}
+    configure_mlflow()
     mlflow.set_experiment("flight-delay")
     rows = []
     for name, cols in models.items():
