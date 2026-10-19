@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+data/*
+!data/.gitkeep
+spark-warehouse/
+metastore_db/
+derby.log
+.pytest_cache/
+.ruff_cache/
+mlruns/
+mlflow.db
+models/*
+!models/.gitkeep
+data/lake/

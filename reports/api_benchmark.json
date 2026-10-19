@@ -1,0 +1,38 @@
+[
+  {
+    "endpoint": "/predict/delay",
+    "requests": 2000,
+    "concurrency": 1,
+    "p50_ms": 10.5,
+    "p95_ms": 27.6,
+    "p99_ms": 32.5,
+    "throughput_rps": 77.6
+  },
+  {
+    "endpoint": "/predict/delay",
+    "requests": 2000,
+    "concurrency": 16,
+    "p50_ms": 148.0,
+    "p95_ms": 202.4,
+    "p99_ms": 244.2,
+    "throughput_rps": 106.6
+  },
+  {
+    "endpoint": "/predict/rul",
+    "requests": 2000,
+    "concurrency": 1,
+    "p50_ms": 25.8,
+    "p95_ms": 46.0,
+    "p99_ms": 52.3,
+    "throughput_rps": 33.4
+  },
+  {
+    "endpoint": "/predict/rul",
+    "requests": 2000,
+    "concurrency": 16,
+    "p50_ms": 614.7,
+    "p95_ms": 734.8,
+    "p99_ms": 811.9,
+    "throughput_rps": 25.8
+  }
+]

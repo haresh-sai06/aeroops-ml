@@ -1,0 +1,42 @@
+[
+  {
+    "feature": "cycle",
+    "mean_abs_shap": 9.234
+  },
+  {
+    "feature": "s_4_mean5",
+    "mean_abs_shap": 7.78
+  },
+  {
+    "feature": "s_11_mean5",
+    "mean_abs_shap": 6.569
+  },
+  {
+    "feature": "s_3_mean15",
+    "mean_abs_shap": 3.391
+  },
+  {
+    "feature": "s_15_mean5",
+    "mean_abs_shap": 3.334
+  },
+  {
+    "feature": "s_9_mean15",
+    "mean_abs_shap": 2.69
+  },
+  {
+    "feature": "s_2_mean5",
+    "mean_abs_shap": 2.529
+  },
+  {
+    "feature": "s_14_mean15",
+    "mean_abs_shap": 2.22
+  },
+  {
+    "feature": "s_8_mean15",
+    "mean_abs_shap": 1.824
+  },
+  {
+    "feature": "s_15_mean15",
+    "mean_abs_shap": 1.48
+  }
+]

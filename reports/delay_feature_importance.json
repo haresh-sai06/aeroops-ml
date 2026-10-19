@@ -1,0 +1,82 @@
+[
+  {
+    "feature": "prev_leg_arr_delay",
+    "gain_share": 0.2626
+  },
+  {
+    "feature": "prev_leg_dep_delay",
+    "gain_share": 0.1544
+  },
+  {
+    "feature": "origin",
+    "gain_share": 0.0701
+  },
+  {
+    "feature": "dest",
+    "gain_share": 0.0587
+  },
+  {
+    "feature": "day_of_month",
+    "gain_share": 0.0548
+  },
+  {
+    "feature": "day_of_week",
+    "gain_share": 0.0437
+  },
+  {
+    "feature": "dep_hour",
+    "gain_share": 0.0436
+  },
+  {
+    "feature": "carrier",
+    "gain_share": 0.0411
+  },
+  {
+    "feature": "carrier_7d_delay_rate",
+    "gain_share": 0.0337
+  },
+  {
+    "feature": "dest_7d_delay_rate",
+    "gain_share": 0.0298
+  },
+  {
+    "feature": "leg_of_day",
+    "gain_share": 0.0277
+  },
+  {
+    "feature": "origin_7d_delay_rate",
+    "gain_share": 0.0265
+  },
+  {
+    "feature": "dest_7d_flights",
+    "gain_share": 0.0248
+  },
+  {
+    "feature": "origin_7d_flights",
+    "gain_share": 0.0245
+  },
+  {
+    "feature": "distance",
+    "gain_share": 0.0241
+  },
+  {
+    "feature": "origin_hour_28d_delay_rate",
+    "gain_share": 0.0208
+  },
+  {
+    "feature": "carrier_7d_flights",
+    "gain_share": 0.0165
+  },
+  {
+    "feature": "route_28d_delay_rate",
+    "gain_share": 0.0151
+  },
+  {
+    "feature": "route_28d_flights",
+    "gain_share": 0.0138
+  },
+  {
+    "feature": "origin_hour_28d_flights",
+    "gain_share": 0.0137
+  }
+]

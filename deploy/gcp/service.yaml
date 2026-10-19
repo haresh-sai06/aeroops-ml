@@ -1,0 +1,29 @@
+# Cloud Run (Knative) service definition. Deploy with:
+#   gcloud run services replace deploy/gcp/service.yaml --region asia-south1
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: aeroops-api
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "0"
+        autoscaling.knative.dev/maxScale: "5"
+    spec:
+      containerConcurrency: 32
+      timeoutSeconds: 30
+      containers:
+        - image: asia-south1-docker.pkg.dev/PROJECT_ID/aeroops/aeroops-api:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: WORKERS
+              value: "2"
+          resources:
+            limits:
+              cpu: "2"
+              memory: 2Gi
+          startupProbe:
+            httpGet:
+              path: /health

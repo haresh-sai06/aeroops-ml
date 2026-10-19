@@ -1,0 +1,80 @@
+{
+  "dataset": "BTS Reporting Carrier On-Time Performance, Jan-Mar 2024 (operated flights)",
+  "train_rows": 1040639,
+  "test_rows": 585413,
+  "test_positive_rate": 0.2085,
+  "results": [
+    {
+      "model": "Prior (base rate)",
+      "n_features": 0,
+      "cv_roc_auc_mean": 0.5,
+      "cv_roc_auc_std": 0.0,
+      "cv_pr_auc_mean": 0.1587,
+      "test_roc_auc": 0.5,
+      "test_pr_auc": 0.2085,
+      "test_brier": 0.1651,
+      "threshold": null,
+      "fit_seconds": 0.0
+    },
+    {
+      "model": "LogReg: schedule + history (numeric)",
+      "n_features": 13,
+      "cv_roc_auc_mean": 0.5902,
+      "cv_roc_auc_std": 0.0159,
+      "cv_pr_auc_mean": 0.2137,
+      "test_roc_auc": 0.6539,
+      "test_pr_auc": 0.3205,
+      "test_brier": 0.1581,
+      "test_precision": 0.2432,
+      "test_recall": 0.8652,
+      "test_f1": 0.3797,
+      "threshold": 0.14,
+      "fit_seconds": 2.9
+    },
+    {
+      "model": "XGB: schedule only",
+      "n_features": 7,
+      "cv_roc_auc_mean": 0.5773,
+      "cv_roc_auc_std": 0.0272,
+      "cv_pr_auc_mean": 0.196,
+      "test_roc_auc": 0.6431,
+      "test_pr_auc": 0.318,
+      "test_brier": 0.1609,
+      "test_precision": 0.3118,
+      "test_recall": 0.4472,
+      "test_f1": 0.3674,
+      "threshold": 0.2,
+      "fit_seconds": 15.7
+    },
+    {
+      "model": "XGB: schedule + history",
+      "n_features": 17,
+      "cv_roc_auc_mean": 0.5874,
+      "cv_roc_auc_std": 0.0136,
+      "cv_pr_auc_mean": 0.203,
+      "test_roc_auc": 0.6449,
+      "test_pr_auc": 0.3117,
+      "test_brier": 0.1626,
+      "test_precision": 0.2486,
+      "test_recall": 0.8292,
+      "test_f1": 0.3825,
+      "threshold": 0.12,
+      "fit_seconds": 23.0
+    },
+    {
+      "model": "XGB: schedule + history + operational",
+      "n_features": 20,
+      "cv_roc_auc_mean": 0.7279,
+      "cv_roc_auc_std": 0.015,
+      "cv_pr_auc_mean": 0.4744,
+      "test_roc_auc": 0.7736,
+      "test_pr_auc": 0.5975,
+      "test_brier": 0.124,
+      "test_precision": 0.4984,
+      "test_recall": 0.5555,
+      "test_f1": 0.5254,
+      "threshold": 0.27,
+      "fit_seconds": 25.7
+    }
+  ]
+}

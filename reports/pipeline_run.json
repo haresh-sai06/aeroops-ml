@@ -1,0 +1,20 @@
+{
+  "bronze_rows": 1658259,
+  "silver_rows": 1658259,
+  "quarantined_rows": 0,
+  "duplicates_removed": 0,
+  "gold_tables": {
+    "daily_kpis": 91,
+    "carrier_monthly": 45,
+    "airport_daily": 29456,
+    "route_stats": 5887,
+    "hourly_profile": 168,
+    "delay_causes": 45
+  },
+  "timings": {
+    "bronze_s": 13.3,
+    "silver_s": 18.0,
+    "quality_s": 2.7,
+    "gold_s": 5.8
+  }
+}

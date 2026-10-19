@@ -1,0 +1,9 @@
+data/
+mlruns/
+mlflow.db
+.git/
+.venv/
+tests/
+docs/
+reports/
+**/__pycache__

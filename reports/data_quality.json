@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "keys_not_null",
+      "severity": "error",
+      "failed_rows": 0,
+      "total_rows": 1658259,
+      "passed": true
+    },
+    {
+      "name": "distance_positive",
+      "severity": "error",
+      "failed_rows": 0,
+      "total_rows": 1658259,
+      "passed": true
+    },
+    {
+      "name": "dep_hour_in_range",
+      "severity": "error",
+      "failed_rows": 0,
+      "total_rows": 1658259,
+      "passed": true
+    },
+    {
+      "name": "operated_flights_have_arr_delay",
+      "severity": "warn",
+      "failed_rows": 0,
+      "total_rows": 1658259,
+      "passed": true
+    },
+    {
+      "name": "cancelled_flights_have_no_air_time",
+      "severity": "warn",
+      "failed_rows": 0,
+      "total_rows": 1658259,
+      "passed": true
+    },
+    {
+      "name": "arr_delay_plausible_range",
+      "severity": "warn",
+      "failed_rows": 6,
+      "total_rows": 1658259,
+      "passed": false
+    },
+    {
+      "name": "cause_minutes_non_negative",
+      "severity": "error",
+      "failed_rows": 0,
+      "total_rows": 1658259,
+      "passed": true
+    },
+    {
+      "name": "unique_flight_key",
+      "severity": "error",
+      "failed_rows": 0,
+      "total_rows": 1658259,
+      "passed": true
+    },
+    {
+      "name": "quarantine_ratio_below_1pct",
+      "severity": "error",
+      "failed_rows": 0,
+      "total_rows": 1658259,
+      "passed": true
+    }
+  ]
+}

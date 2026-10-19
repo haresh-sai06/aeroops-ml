@@ -1,0 +1,18 @@
+[project]
+name = "aeroops-ml"
+version = "0.1.0"
+description = "End-to-end aviation ML system: PySpark feature pipeline, delay & RUL models, FastAPI serving, Streamlit dashboard"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[tool.ruff]
+line-length = 140
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B"]
+ignore = ["B008", "E501", "B905"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

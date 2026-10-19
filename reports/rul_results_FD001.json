@@ -1,0 +1,70 @@
+{
+  "dataset": "NASA C-MAPSS FD001",
+  "train_engines": 100,
+  "test_engines": 100,
+  "train_rows": 20631,
+  "rul_cap": 125,
+  "cpu_threads": 4,
+  "results": [
+    {
+      "model": "Baseline (mean RUL)",
+      "features": "-",
+      "cv_rmse_mean": 41.68,
+      "cv_rmse_std": 2.27,
+      "test_rmse": 41.94,
+      "test_rmse_uncapped": 43.07,
+      "test_nasa_score": 33354.5,
+      "fit_seconds": 0.0
+    },
+    {
+      "model": "Ridge regression",
+      "features": "rolling",
+      "cv_rmse_mean": 20.18,
+      "cv_rmse_std": 1.7,
+      "test_rmse": 19.5,
+      "test_rmse_uncapped": 20.56,
+      "test_nasa_score": 756.5,
+      "fit_seconds": 0.0
+    },
+    {
+      "model": "Random Forest",
+      "features": "rolling",
+      "cv_rmse_mean": 17.6,
+      "cv_rmse_std": 3.25,
+      "test_rmse": 16.74,
+      "test_rmse_uncapped": 17.98,
+      "test_nasa_score": 532.7,
+      "fit_seconds": 30.1
+    },
+    {
+      "model": "XGBoost",
+      "features": "raw",
+      "cv_rmse_mean": 17.95,
+      "cv_rmse_std": 3.35,
+      "test_rmse": 17.57,
+      "test_rmse_uncapped": 18.77,
+      "test_nasa_score": 655.1,
+      "fit_seconds": 1.1
+    },
+    {
+      "model": "XGBoost",
+      "features": "rolling",
+      "cv_rmse_mean": 17.31,
+      "cv_rmse_std": 3.18,
+      "test_rmse": 17.12,
+      "test_rmse_uncapped": 18.35,
+      "test_nasa_score": 522.8,
+      "fit_seconds": 2.0
+    },
+    {
+      "model": "LSTM (PyTorch)",
+      "features": "30-cycle windows",
+      "cv_rmse_mean": null,
+      "cv_rmse_std": null,
+      "test_rmse": 14.25,
+      "test_rmse_uncapped": 15.45,
+      "test_nasa_score": 389.5,
+      "fit_seconds": 81.1
+    }
+  ]
+}
